@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../CSS/Lib/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/Lib/fontawesome-all.css">
+
+	<!--CUSTOM CSS-->
+	<link rel="stylesheet" type="text/css" href="../CSS/Main-Page/main-page.css">
+</head>
+<body>
+	<!--CONTROL BAR-->
+	<div class="container-fluid" id="control-area" style="background-color: #202020">
+		<div class="row" style="border-style: solid;border-color:black;border-width: 0px 0px 1px 0px;height: 30px">
+			<div class="col-lg-2" style="font-family: MyriadPro;color: white;font-size: 20px;">
+				<p>CPO</p>
+			</div>
+			<div class="col-lg-9 moveWindow"></div>
+
+			<!--CONTROL BUTTON HERE-->
+			<!--MINIMIZE BUTTON, RESTORE BUTTON, CLOSE BUTTOn-->
+			<div class="col-lg-1">
+				<div style="display: flex;justify-content: flex-end;">
+				<i class="fas fa-window-minimize control-button" onclick="minimizeWindow()"></i>
+				<i class="fas fa-window-restore control-button" onclick="maximizeWindow()"></i>
+				<i class="fas fa-times control-button" onclick="closeWindow()"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--END CONTROL BAR AREA-->
+
+ 	<!--ADMIN CONTROL PANEL-->
+ 	<div class="container-fluid">
+ 		<div class="row">
+ 			<div class="col-lg-3" style="position: relative;">
+ 				<div class="shadow-hover controlTaskBar" id="control-task-1" style="z-index: 4;top: 100px">
+ 					<div style="width: 100%;height: 150px;position: relative;top: 20px;">
+ 						<div style="display: grid;grid-template-columns: auto;grid-row-gap: 2px;margin-left: 10px">
+ 							<button type="button" class="controlTaskBar-btt" onclick="ChangeShowMode(3)"><i class="far fa-clock"></i></button>
+
+ 							<input type="checkbox" id="back-panel-lb">
+ 							<label id="back-panel-btt" for="back-panel-lb" onclick="backtoDefaultPanel()">
+ 								<i class="fas fa-arrow-left"></i>
+ 							</label>
+ 							<button type="button" class="controlTaskBar-btt" onclick="ClearPlayerContent()"><i class="fas fa-eraser"></i></button>
+ 							<button type="button" class="controlTaskBar-btt" onclick="LockAllPlayer()" id="lock-all-user-btt"><i class="fas fa-lock"></i></button>
+ 							<button type="button" class="controlTaskBar-btt" onclick="ReloadPlayersBoard()"><i class="fas fa-upload"></i></button>
+ 						</div>
+ 					</div>
+ 				</div>
+
+ 				<br>
+
+ 				<div class="shadow-hover controlTaskBar" style="height: 230px !important;z-index: 3;background-color: #1c1c1c;top: 300px" id="control-task-2">
+ 					<div style="width: 100%;height: 150px;position: relative;top: 20px;">
+ 						<div style="display: grid;grid-template-columns: auto;grid-row-gap: 2px;margin-left: 10px">
+ 							<button type="button" class="controlTaskBar-btt" onclick="ShowAlarm(0)"><b>1</b></button>
+ 							<button type="button" class="controlTaskBar-btt" onclick="ShowAlarm(1)"><b>2</b></button>
+ 							<button type="button" class="controlTaskBar-btt" onclick="ShowAlarm(2)"><b>3</b></button>
+ 							<button type="button" class="controlTaskBar-btt" onclick="ShowAlarm(3)"><b>4</b></i></button>
+ 							<button type="button" class="controlTaskBar-btt" onclick="LockAllAlarm()" id="lock-all-alarm"><i class="fas fa-lock"></i></button>
+ 							<button type="button" class="controlTaskBar-btt" onclick="ResetAlarmToDefault()" id="lock-all-alarm"><i class="fas fa-eraser"></i></button>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+
+ 			<div class="col-lg-6 resize-element" id="admin-control-area">
+ 				
+ 				<div id="message-area">
+ 					<p id="message">Welcome To CPO 4 Beta 1.0.1</p>	
+ 				</div>
+
+ 				<div>
+ 					<button type="button" id="pn1-btt" class="admin-button shadow-hover" onclick="showPanelById('1')">
+ 						<div style="margin-top:10px;">
+ 							<img src="../Asset/Image/user-control-area.png" width="50" height="80" style="padding: 5px;">
+ 							<img src="../Asset/Image/user-control-area.png" width="50" height="80" style="padding: 5px;">
+ 						</div>
+ 					</button>
+
+ 					<button type="button" id="pn2-btt" class="admin-button shadow-hover" onclick="showPanelById('2')">
+ 						<div style="margin-top:10px;">
+ 							<img src="../Asset/Image/ranking.png" width="85" height="85">					
+ 						</div>
+ 					</button>
+
+		 			<button type="button" id="pn3-btt" class="admin-button shadow-hover">
+		 				<div style="margin-top:10px;">
+ 							<img src="../Asset/Image/stopwatch.png" width="85" height="85">					
+ 						</div>	
+		 			</button>
+
+		 			<button type="button" id="pn4-btt" class="admin-button shadow-hover" onclick="showPanelById('4')">
+		 				<div style="margin-top:10px;">
+ 							<img src="../Asset/Image/chip.png" width="85" height="85">					
+ 						</div>	
+		 			</button>
+		 			
+		 			<button type="button" id="pn5-btt" class="admin-button shadow-hover" onclick="showPanelById('5')">
+		 				<div style="margin-top:10px;">
+ 							<img src="../Asset/Image/softtware-engineer.png" width="85" height="85">					
+ 						</div>	
+		 			</button>
+
+		 			<button type="button" id="pn6-btt" class="admin-button shadow-hover"  onclick="showPanelById('6')">
+		 				<div style="margin-top:10px;">
+ 							<img src="../Asset/Image/settings-gears.png" width="85" height="85">				
+ 						</div>		
+		 			</button>
+ 				</div>
+ 			</div>
+ 			<div class="col-lg-3">
+ 				<div class="messageBox" id="fadeMessageBox" style="width: 250px">
+		
+				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<!--END ADMIN CONTROLER AREA-->
+
+ 	<!--PLAYER CONTROL PANEL-->
+ 	<div class="panel resize-element container-fluid" id="pn1">
+ 		<div class="row">
+ 			<div class="col-lg-1""></div>
+
+ 			<div class="col-lg-10">
+ 				<div style="width: 100%;height: 100%;display: flex;justify-content: center;align-items: center">
+ 					<div class="panel-grid">
+		 			<div id="user-1" class="user-ui shadow-hover">
+		 				<div class="user-info">
+		 					<div class="container">
+		 						<div class="row" style="height: 100px">
+		 							<div class="col-lg-3">
+		 								<!--avatar-->
+		 								<div>
+		 									<img id="user-avatar-1" style="display: inline-block" class="user-avatar" src="../Asset/Image/user-image-test.jpg">	
+		 								</div>
+		 								<!--end avatar area-->
+		 							</div>
+		 							<div class="col-lg-5">
+		 								<!--name-->
+		 								<div>
+		 									<p id="user-name-1" style="display: inline-block;" class="user-name">Bui Quang Dinh</p>
+		 									<span id="user-status-1" style="display: inline-block" class="user-status user-offline"></span>					
+		 								</div>
+		 								<!--end name area-->
+
+		 								<!--Time Progress bar-->
+		 								<div class="player-time-progressbar">
+											<i id="time-countdown-lb-result-1" class="time-countdown-label">00:09</i>
+											<div style="clear: both;"></div>
+											<div class="time-progressbar-outer">
+												<div id="time-countdown-progress-1" class="time-progressbar-inner"></div>
+											</div>
+										</div>
+		 								<!--end time progress bar-->
+		 							</div>
+		 							<div class="col-lg-4">
+		 								<p id="user-score-1" class="user-score">170</p>
+		 								<div style=";position: relative;top:-35px">
+		 									<button type="button" id="custom-score-btt-1" class="custom-score-btt shadow-hover"><i class="fas fa-arrow-up"></i></button>
+		 									<input type="text" id="custom-score-input-1" class="custom-score-input shadow-hover">
+		 									<i id="minus-btt-1" class="fa fa-minus score-button"></i>
+		 									<i id="plus-btt-1" class="fa fa-plus score-button"></i>
+		 								</div>
+		 							</div>
+		 						</div>
+		 					</div>	 					
+		 				</div>
+
+		 				<div class="user-answer-area">
+		 					<textarea id="user-answer-content-1" readonly></textarea>
+		 				</div>
+
+		 				<div class="admin-control-area">
+		 					<div style="width: 100%;display: flex;justify-content: space-around;align-items: center;margin-top: 3px">
+		 						<i id="lock-user-1" class="fas fa-lock lock-user-control"></i>
+		 						<i id="settings-user-1" class="fas fa-ban user-settings"></i>
+		 					</div>
+		 				</div>
+		 			</div>
+
+		 			<div id="user-2" class="user-ui shadow-hover">
+		 				<div class="user-info">
+		 					<div class="container">
+		 						<div class="row" style="height: 100px">
+		 							<div class="col-lg-3">
+		 								<!--avatar-->
+		 								<div>
+		 									<img id="user-avatar-2" class="user-avatar" src="../Asset/Image/user-image-test.jpg">
+		 								</div>
+		 								<!--end avatar area-->
+		 							</div>
+		 							<div class="col-lg-5">
+		 								<!--name-->
+		 								<div>
+		 									<p id="user-name-2" style="display: inline-block;" class="user-name">Bui Quang Dinh</p>
+		 									<span id="user-status-2" style="display: inline-block" class="user-status user-offline"></span>	
+		 								</div>
+		 								<!--end name area-->
+
+		 								<!--Time Progress bar-->
+		 								<div class="player-time-progressbar">
+											<i id="time-countdown-lb-result-2" class="time-countdown-label">00:09</i>
+											<div style="clear: both;"></div>
+											<div class="time-progressbar-outer">
+												<div id="time-countdown-progress-2" class="time-progressbar-inner"></div>
+											</div>
+										</div>
+		 								<!--end time progress bar-->
+		 							</div>
+		 							<div class="col-lg-4">
+		 								<p id="user-score-2" class="user-score">170</p>
+		 								<div style=";position: relative;top:-35px">
+		 									<button type="button" id="custom-score-btt-2" class="custom-score-btt shadow-hover"><i class="fas fa-arrow-up"></i></button>
+		 									<input type="text" id="custom-score-input-2" class="custom-score-input shadow-hover">
+		 									<i id="minus-btt-2" class="fa fa-minus score-button"></i>
+		 									<i id="plus-btt-2" class="fa fa-plus score-button"></i>
+		 								</div>
+		 							</div>
+		 						</div>
+		 					</div>	 					
+		 				</div>
+
+		 				<div class="user-answer-area">
+		 					<textarea id="user-answer-content-2" readonly></textarea>
+		 				</div>
+
+		 				<div class="admin-control-area">
+		 					<div style="width: 100%;display: flex;justify-content: space-around;align-items: center;margin-top: 3px">
+		 						<i id="lock-user-2" class="fas fa-lock lock-user-control"></i>
+		 						<i id="settings-user-2" class="fas fa-ban user-settings"></i>
+		 					</div>
+		 				</div>
+		 			</div>
+
+		 			<div id="user-3" class="user-ui shadow-hover">
+		 				<div class="user-info">
+		 					<div class="container">
+		 						<div class="row" style="height: 100px">
+		 							<div class="col-lg-3">
+		 								<!--avatar-->
+		 								<div>
+		 									<img id="user-avatar-3" class="user-avatar" src="../Asset/Image/user-image-test.jpg">
+		 								</div>
+		 								<!--end avatar area-->
+		 							</div>
+		 							<div class="col-lg-5">
+		 								<!--name-->
+		 								<div>
+		 									<p id="user-name-3" style="display: inline-block;" class="user-name">Bui Quang Dinh</p>
+		 									<span id="user-status-3" style="display: inline-block" class="user-status user-offline"></span>	
+		 								</div>
+		 								<!--end name area-->
+
+		 								<!--Time Progress bar-->
+		 								<div class="player-time-progressbar">
+											<i id="time-countdown-lb-result-3" class="time-countdown-label">00:09</i>
+											<div style="clear: both;"></div>
+											<div class="time-progressbar-outer">
+												<div id="time-countdown-progress-3" class="time-progressbar-inner"></div>
+											</div>
+										</div>
+		 								<!--end time progress bar-->
+		 							</div>
+		 							<div class="col-lg-4">
+		 								<p id="user-score-3" class="user-score">170</p>
+		 								<div style=";position: relative;top:-35px">
+		 									<button type="button" id="custom-score-btt-3" class="custom-score-btt shadow-hover"><i class="fas fa-arrow-up"></i></button>
+		 									<input type="text" id="custom-score-input-3" class="custom-score-input shadow-hover">
+		 									<i id="minus-btt-3" class="fa fa-minus score-button"></i>
+		 									<i id="plus-btt-3" class="fa fa-plus score-button"></i>
+		 								</div>
+		 							</div>
+		 						</div>
+		 					</div>	 					
+		 				</div>
+
+		 				<div class="user-answer-area">
+		 					<textarea id="user-answer-content-3" readonly></textarea>
+		 				</div>
+
+		 				<div class="admin-control-area">
+		 					<div style="width: 100%;display: flex;justify-content: space-around;align-items: center;margin-top: 3px">
+		 						<i id="lock-user-3" class="fas fa-lock lock-user-control"></i>
+		 						<i id="settings-user-3" class="fas fa-ban user-settings"></i>
+		 					</div>
+		 				</div>
+		 			</div>
+
+		 			<div id="user-4" class="user-ui shadow-hover">
+		 				<div class="user-info">
+		 					<div class="container">
+		 						<div class="row" style="height: 100px">
+		 							<div class="col-lg-3">
+		 								<!--avatar-->
+		 								<div>
+		 									<img id="user-avatar-4" class="user-avatar" src="../Asset/Image/user-image-test.jpg">
+		 								</div>
+		 								<!--end avatar area-->
+		 							</div>
+		 							<div class="col-lg-5">
+		 								<!--name-->
+		 								<div>
+		 									<p id="user-name-4" style="display: inline-block;" class="user-name">Bui Quang Dinh</p>
+		 									<span id="user-status-4" style="display: inline-block" class="user-status user-offline"></span>	
+		 								</div>
+		 								<!--end name area-->
+
+		 								<!--Time Progress bar-->
+		 								<div class="player-time-progressbar">
+											<i id="time-countdown-lb-result-4" class="time-countdown-label">00:09</i>
+											<div style="clear: both;"></div>
+											<div class="time-progressbar-outer">
+												<div id="time-countdown-progress-4" class="time-progressbar-inner"></div>
+											</div>
+										</div>
+		 								<!--end time progress bar-->
+		 							</div>
+		 							<div class="col-lg-4">
+		 								<p id="user-score-4" class="user-score">170</p>
+		 								<div style=";position: relative;top:-35px">
+		 									<button type="button" id="custom-score-btt-4" class="custom-score-btt shadow-hover"><i class="fas fa-arrow-up"></i></button>
+		 									<input type="text" id="custom-score-input-4" class="custom-score-input shadow-hover">
+		 									<i id="minus-btt-4" class="fa fa-minus score-button"></i>
+		 									<i id="plus-btt-4" class="fa fa-plus score-button"></i>
+		 								</div>
+		 							</div>
+		 						</div>
+		 					</div>	 					
+		 				</div>
+
+		 				<div class="user-answer-area">
+		 					<textarea id="user-answer-content-4" readonly></textarea>
+		 				</div>
+
+		 				<div class="admin-control-area">
+		 					<div style="width: 100%;display: flex;justify-content: space-around;align-items: center;margin-top: 3px">
+		 						<i id="lock-user-4" class="fas fa-lock lock-user-control"></i>
+		 						<i id="settings-user-4" class="fas fa-ban user-settings"></i>
+		 					</div>
+		 				</div>
+		 			</div>
+	 			</div>
+ 				</div>				
+ 			</div>
+
+ 			<div class="col-lg-1"></div>
+ 		</div>
+ 	</div>
+ 	<!--END PLAYER CONTROL PANEL-->
+
+ 	<!--RANKING BOARD AREA-->
+ 	<div class="panel resize-element container-fluid" id="pn2" style="overflow:auto; ">
+ 		 <div class="row">
+ 		 	<div class="col-lg-1"></div>
+
+ 		 	<div class="col-lg-10">
+ 		 		<div id="select-display">
+ 		 			<p class="panel-title">Màn hình</p>
+ 		 			<i style="font-family: MyriadPro;font-size: 18px;color: black">Click 2 lần để chọn màn hình</i>
+ 		 			<div id="displays-list">
+ 		 			</div>
+ 		 			<div style="display: flex;justify-content: space-between;align-content: center">
+ 		 				<p id="display-selection-message">Chưa màn hình nào được chọn.</p>
+ 		 				<button type="button" id="detect-button" onclick="ReDetectDisplay()">
+ 		 					Detect
+ 		 				</button>
+ 		 			</div>
+ 		 			
+ 		 		</div>
+
+ 		 		<hr>
+ 		 		
+ 		 		<div id="select-themes">
+ 		 			<p class="panel-title">Themes</p>
+ 		 			<div id="themes-list">
+ 		 				<p>Tính năng này chưa khả dụng</p>
+ 		 			</div>
+ 		 		</div>
+
+ 		 		<hr>
+	
+				<div>
+					<p class="panel-title">Tiêu đề bảng điểm</p>
+					<div style="display: grid;grid-template-columns: auto auto;grid-row-gap: 10px;">
+
+						<div>
+							<p class="sub-title">Tiêu đề</p>
+							<input type="text" class="input-field 	shadow-hover" id="title-input">
+						</div>
+
+						<div>
+							<p class="sub-title">Cỡ chữ (px)</p>
+							<input type="text" class="input-field shadow-hover" id="fontsize-title-input">
+						</div>
+
+					</div>
+
+					<br>
+
+					<div>
+						<p class="sub-title">Màu chữ</p>
+						<div>
+							<img src="../Asset/Image/color-wheel.png" width="0" height="0" id="color-picker-source">
+							<canvas id="rk-cv-color-picker" width="200" height="200"></canvas>
+						</div>
+						
+						<div>
+							<span id="rk-color-result" style="display: inline-block" class="color-result"></span>
+							<input type="text" id="rk-color-input" placeholder="Hex" class="color-input">
+						</div>					
+					</div>	
+
+					<br>
+
+					<button type="button" class="color-submit shadow-hover" onclick="ChangeHeaderInfo()">Cập nhật</button>
+				</div>
+				
+				<hr>
+
+				<div>
+					<p class="panel-title">Điều khiển</p>
+					<p id="controller-guide-text">Di chuyển qua các nút điều khiển để biết thêm thông tin</p>
+					<div style="display: grid;grid-template-columns: auto auto;grid-row-gap: 10px;">
+						<button class="ranking-board-control-btt shadow-hover" onclick="ChangeShowMode(0)">Hiển thị điểm</button>
+						<button class="ranking-board-control-btt shadow-hover" onclick="ChangeShowMode(1)">Hiển thị câu trả lời và điểm</button>
+						<button class="ranking-board-control-btt shadow-hover" onclick="ChangeShowMode(4)">Hiển thị thanh thời gian và thời gian</button>
+						<button class="ranking-board-control-btt shadow-hover" onclick="ChangeShowMode(3)">Hiển thị câu trả lời và thời gian</button>
+					</div>				
+				</div>
+				
+				<hr>
+
+				<div>
+					<p class="panel-title">Thời gian</p>
+					<div>
+						<div>
+							<p style="font-family: MyriadPro;font-size:25px;color:black;display: inline-block" class="sub-title">Thiết lập thời gian : 
+								<input type="text" id="time-input-field" class="input-field shadow-hover" style="display: inline-block;"> giây
+							</p>
+						</div>
+						<div>
+							<p style="font-family: MyriadPro;font-size:25px;color:black;display: inline-block">Điều khiển</p>
+							<div class="counter-settings">
+								<label class="checkbox-container">Tự động mở khóa cho tất cả thí sinh khi bấm nút Start
+								  <input type="checkbox" id="lock-all-user-cb">
+								  <span class="checkmark"></span>
+								</label>
+							</div>
+							<div style="display: grid: grid-template-columns: auto auto;grid-column-gap: 50px;">
+								<button class="ranking-board-control-btt shadow-hover" onclick="StartTimeCountDown()">Bắt đầu</button>
+								<button class="ranking-board-control-btt shadow-hover" onclick="StopTimeCountDown()">Dừng</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<hr>
+
+ 		 		<div id="str-cls-rld-control">
+ 		 			<p class="panel-title">Trạng thái: <span id="users-board-status">Chưa mở</span></p>
+ 		 			<div style="display: flex;justify-content: space-between;align-items: center">
+ 		 				
+ 		 				<button id="starting-users-board-page" class="ranking-board-control-btt shadow-hover actived depend-rk-board" style="color: white;background-color:#e74c3c" onclick="ShowPlayerBoard()">Mở</button>
+
+ 		 				<button id="closing-users-board-page" class="ranking-board-control-btt shadow-hover deactived depend-rk-board-inverse" style="color: white;background-color:#7f8c8d" onclick="ClosePlayersBoard()" disabled>Đóng</button>
+
+ 		 				<button id="reloading-users-board-page" class="ranking-board-control-btt shadow-hover deactived depend-rk-board" style="color: white;background-color:#2ecc71" onclick="ReloadPlayersBoard()" disabled>Cập nhật</button>
+ 		 			</div>
+ 		 		</div>
+ 				<br>
+ 		 	</div> 		
+ 		 	<div class="col-lg-1"></div>
+ 		 </div>
+ 	</div>
+ 	<!--END RANKING BOARD AREA-->
+
+	<!--EMBEDDED SYSTEM-->
+	<div class="panel resize-element container-fluid" id="pn4" style="background-color: white;overflow-x: auto">
+		<div class="row">
+			<div class="col-lg-1"></div>
+
+			<div class="col-lg-10">
+				<div>
+					<p class="panel-title">Trạng thái</p>
+					<div class="row">
+						<div class="col-lg-3" >
+							<div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;">
+								<div style="background-color: #2ecc71" class="platform shadow-hover">1</div>
+							</div>
+							<p class="platform-status">Đã kết nối</p>
+						</div>
+
+						<div class="col-lg-3" >
+							<div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;">
+								<div style="background-color: #2ecc71" class="platform shadow-hover">2</div>
+							</div>
+							<p class="platform-status">Đã kết nối</p>
+						</div>
+
+						<div class="col-lg-3" >
+							<div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%;">
+								<div style="background-color: #2ecc71" class="platform shadow-hover">3</div>
+							</div>
+							<p class="platform-status">Đã kết nối</p>
+						</div>
+
+						<div class="col-lg-3" >
+							<div style="display: flex;justify-content: center;align-items: center;width: 100%;height: 100%">
+								<div class="platform shadow-hover">4</div>
+							</div>
+							<p class="platform-status">Chưa kết nối</p>
+						</div>
+					</div>
+				</div>
+				
+				<br>
+
+				<hr>
+
+				<div>
+					<p class="panel-title">Màu chuông</p>
+					<div class="row">
+						<div class="col-lg-9">
+							<p id="alarm-section-message">Tất cả đèn chuông được bật sáng ở chế độ xem trước (với những màu đã cài đặt hoặc mặc định)</p>
+						</div>
+
+						<div class="col-lg-3">
+							<div>
+								<p style="font-family: MyriadPro;font-size: 20px;color: black">Xem trước</p>
+								<div class="cus_checkbox">
+									<input type="checkbox" id="cb" value="None">
+									<label for="cb" onclick="ChangeAlarmReviewMode()"></label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<hr>
+
+					<div>
+						<div class="row">
+							<div class="col-lg-3">
+								<div>
+									<canvas id="es-cv-color-picker-1" width="200" height="200"></canvas>
+								</div>
+						
+								<div>
+									<span id="es-color-result-1" class="color-result" style="display: inline-block"></span>
+									<input type="text" id="es-color-input-1" placeholder="Hex" class="color-input">
+								</div>
+
+								<br>
+
+								<button type="button" id="change-alarm-lighting-1" class="color-submit shadow-hover">Cập nhật</button>
+							</div>
+
+							<div class="col-lg-3">
+								<div>
+									<canvas id="es-cv-color-picker-2" width="200" height="200"></canvas>
+								</div>
+						
+								<div>
+									<span id="es-color-result-2" class="color-result" style="display: inline-block"></span>
+									<input type="text" id="es-color-input-2" placeholder="Hex" class="color-input">
+								</div>
+
+								<br>
+
+								<button type="button" id="change-alarm-lighting-2" class="color-submit shadow-hover">Cập nhật</button>
+							</div>
+
+							<div class="col-lg-3">
+								<div>
+									<canvas id="es-cv-color-picker-3" width="200" height="200"></canvas>
+								</div>
+						
+								<div>
+									<span id="es-color-result-3" class="color-result" style="display: inline-block"></span>
+									<input type="text" id="es-color-input-3" placeholder="Hex" class="color-input">
+								</div>
+
+								<br>
+
+								<button type="button" id="change-alarm-lighting-3" class="color-submit shadow-hover">Cập nhật</button>
+							</div>
+
+							<div class="col-lg-3">
+								<div>
+									<canvas id="es-cv-color-picker-4" width="200" height="200"></canvas>
+								</div>
+						
+								<div>
+									<span id="es-color-result-4" class="color-result" style="display: inline-block"></span>
+									<input type="text" id="es-color-input-4" placeholder="Hex" class="color-input">
+								</div>
+
+								<br>
+
+								<button type="button" id="change-alarm-lighting-4" class="color-submit shadow-hover">Cập nhật</button>
+							</div>								
+						</div>					
+					</div>				
+				</div>
+				
+				<hr>
+				
+				<div>
+					<p class="panel-title">Phản hồi từ tiến trình</p>
+					<div>
+						<textarea id="child-process-result" readonly></textarea>	
+					</div>
+				</div>			
+			</div>			
+			<div class="col-lg-1"></div>
+		</div>			
+	</div>
+	<!--END EMBEDDED SYSTEM AREA-->
+
+ 	<!--ABOUT AUTHOR-->
+ 	<div class="panel resize-element" id="pn5" style="background-color: white;overflow-x: auto">
+ 		<div style="display: flex;justify-content: center;align-items: center">
+ 			<div style="text-align: center">
+ 				<section id="name-author">Bùi Quang Đính</section>
+ 				<div>
+ 					<p id="slogan" style="display: inline-block">Less is more</p>
+ 					<div class="div-slider">
+ 						<div class="item">
+ 							<div>
+ 								<div class="sub-title-item">Liên hệ</div>
+ 								<div>0128 277 3234</div>
+ 							</div>			
+ 						</div>
+
+ 						<div class="item">
+ 							<div>
+ 								<div class="sub-title-item">Đại Học</div>
+ 								<div>Bách Khoa Đà Nẵng</div>
+ 							</div>		
+ 						</div>	
+ 					</div>			
+ 				</div>				
+ 			</div>
+ 		</div>
+
+ 		<hr>
+		
+		<div style="text-align: center">
+			<p class="author-page-title">Kĩ năng lập trình</p>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-6">
+						<div style="display: flex;flex-direction: column;justify-content: center;align-items: center">
+							<!--progress bar-->
+							<div class="progress-bar">
+								<p class="progress-title">C#</p>
+								<div class="outer">
+									<div class="inner" style="width: 80%"></div>
+								</div>
+							</div>
+
+							<br>
+
+							<div class="progress-bar">
+								<p class="progress-title">Python</p>
+								<div class="outer">
+									<div class="inner" style="width: 40%"></div>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="col-lg-6">
+						<div style="display: flex;flex-direction: column;justify-content: center;align-items: center">
+								<!--progress bar-->
+							<div class="progress-bar">
+								<p class="progress-title">Front-End</p>
+								<div class="outer">
+									<div class="inner" style="width: 50%"></div>
+								</div>
+							</div>
+
+							<br>
+
+							<div class="progress-bar">
+								<p class="progress-title">Back-End</p>
+								<div class="outer">
+									<div class="inner" style="width: 70%"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+ 		
+ 		<hr>
+
+ 		<div style="text-align: center">
+ 			<p class="author-page-title">Tôi</p>
+ 			<div class="container-fluid">
+ 				<div class="row">
+ 					<div class="col-lg-1"></div>
+ 					<div class="col-lg-10">
+ 						<div style="text-align: justify;font-family: MyriadPro;font-size: 25px;color: #1C1C1C;"></div>
+ 					</div>
+ 					<div class="col-lg-1"></div>
+ 				</div>
+ 			</div>		
+ 		</div>	
+ 	</div>
+ 	<!--END ABOUT AUTHOR AREA-->
+	
+	<!--SETTINGS PANEL-->
+	<div class="panel resize-element container-fluid" id="pn6" style="overflow:auto;background-color: white">
+ 		 <div class="row">
+ 		 	<div class="col-lg-1"></div>
+
+ 		 	<div class="col-lg-10">
+ 		 		<div>
+ 		 			<p class="panel-title">Chuông</p>
+ 		 			<div>
+ 		 				<p class="sub-title">Âm thanh chuông</p>
+ 		 				<div style="display: inline-block;">
+ 		 					<input type="file" id="sound-file" style="display: none" accept=".mp3">
+ 		 					<button id="import-sound-btt" class="settings-page-update-btt" onclick="ImportSound()">Thay đổi</button>
+ 		 					<input type="text" id="sound-path-txt" class="settings-page-txt-input" readonly>
+ 		 				</div>
+ 		 			</div>
+
+ 		 			<hr>
+
+ 		 			<div>
+ 		 				<p class="sub-title">Độ dài chuông</p>
+ 		 				<div style="display: inline-block;">
+ 		 					<input type="text" id="time-alarm-txt" class="settings-page-txt-input" placeholder="giây">
+ 		 					<button class="settings-page-update-btt" onclick="UpdateTimeAlarm()">Thay đổi</button>
+ 		 				</div>
+ 		 			</div>
+ 		 		</div>
+ 		 	</div> 		
+ 		 	<div class="col-lg-1"></div>
+ 		 </div>
+ 	</div>
+ 	<!---------->
+
+	<!--MEDIA--->
+	<audio style="display: none" id="sound-alarm">
+		<source src="../../View/Asset/Sound/chuong.mp3" type="audio/mpeg">
+	</audio>
+
+
+ 	<script> var $ = require('jquery');</script>
+ 	<script src="../JS/Lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+ 	<script src="../JS/Main-Page-JS/resize-element.js" type="text/javascript" charset="utf-8"></script>
+
+ 	<!--Init Script-->
+ 	<script src="../JS/Main-Page-JS/Init-Players.js"></script>
+ 	<script src="../JS/Main-Page-JS/Init-Server.js"></script>
+ 	<script src="../JS/Main-Page-JS/Init-Alarm-System.js"></script>
+ 	<script src="../JS/Main-Page-JS/Init-Others.js"></script>
+
+ 	<!--main page event-->
+ 	<script src="../JS/Main-Page-JS/admin-control-events.js" type="text/javascript" charset="utf-8"></script>
+ 	<script src="../JS/Main-Page-JS/main-page-events.js" type="text/javascript" charset="utf-8"></script>
+ 	<script src="../JS/Main-Page-JS/ranking-control-events.js" type="text/javascript" charset="utf-8"></script>
+ 	<script src="../JS/Main-Page-JS/alarm-control-page.js" type="text/javascript" charset="utf-8"></script>
+ 	<script src="../JS/Main-Page-JS/author-events.js" type="text/javascript" charset="utf-8"></script>
+ 	<script src="../JS/Main-Page-JS/settings-panel.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

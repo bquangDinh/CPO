@@ -1,0 +1,232 @@
+#user-control-panel{
+	background-color: #0984e3;
+}
+
+#user-1{
+	float:left;
+	margin-left: 120px;
+}
+
+#user-2{
+	float: right;
+	margin-right: 120px;
+}
+
+#user-3{
+	float:left;
+	margin-left: 120px;
+}
+
+#user-4{
+	float: right;
+	margin-right: 120px;	
+}
+
+.user-ui{
+	width: 368px;
+	height: 200px;
+	border-style: solid;
+	border-color: black;
+	border-width: 0px;
+	border-radius: 20px;
+	display: inline-block;
+	background-color: white;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	-webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}	
+
+.user-ui:hover{
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+/*User UI CSS*/
+.user-info{
+	width: 250px;
+	height: 80px;
+	float: left;
+}
+
+.user-score-area{
+	width: 118px;
+	height: 80px;
+	float: left;
+}
+
+.user-avatar{
+	border-radius: 50%;
+	float:left;
+	padding: 10px;
+	
+	width: 60px;
+	height: 60px;
+	
+	transition: width 0.2s,height 0.2s;
+}
+
+.user-avatar:hover{
+	width: 70px;
+	height: 70px;
+}
+
+.user-name{
+	font-family: MyriadPro;
+	font-size: 20px;
+	color:black;
+	float:left;
+	margin-top: 30px;
+	text-overflow:ellipsis;
+}
+
+.user-status{
+	display: inline-block;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	background-color: #bdc3c7;
+	margin-top: 35px;
+}
+
+.user-online{
+	background-color: #2ecc71;
+}
+
+.user-offline{
+	background-color: #bdc3c7;
+}
+
+.user-score{
+	font-family: MyriadPro;
+	font-size: 55px;
+	color:black;
+	float:right;
+
+	margin-top:0px;
+	margin-right: 20px;
+	width: 100px;
+}
+
+.minus-score{
+	position: relative;
+	top:-60px;
+	right: 30px;
+
+	padding-left: 5px;
+	padding-right: 5px;
+
+	color:black;
+	transition: color 0.2s;
+
+}
+
+.minus-score:hover{
+	color:#e74c3c;
+}
+
+.plus-score{
+	position: relative;
+	top:-82px;
+	left: 35px;
+
+	padding-left: 5px;
+	padding-right: 5px;
+
+	color:black;
+	transition: color 0.2s;
+}
+
+.plus-score:hover{
+	color:#e74c3c;
+}
+
+.custom-score-input{
+	position: relative;
+	top:-65px;
+	right: 30px;
+
+	width: 50px;
+	height: 20px;
+
+	border-radius: 20px;
+	border-width: 0px;
+
+	text-align: center;
+	color:white;
+	font-family: MyriadPro;
+
+	background-color: #515151;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	-webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.custom-score-input:hover{
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.custom-score-input:focus{
+	outline: 0;
+}
+
+.custom-score-btt{
+	position: relative;
+	top:-59px;
+	right: 30px;
+
+	border-radius: 50%;
+	width: 20px;
+	height: 20px;
+	border-width: 0px;
+	background-color: #515151;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	-webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.custom-score-btt:hover{
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.custom-score-btt:focus{
+	outline: 0;
+}
+
+.user-answer-area{
+	width: 100%;
+	height: 80px;
+}
+
+.user-answer-textarea{
+	width: 364px;
+	height: 70px;
+	border: 0;
+
+	background-color: grey;
+	resize: none;
+	outline: 0;
+
+	font-family: MyriadPro;
+	font-size: 18px;
+	color: white;
+}
+
+.admin-control-area{
+	width: 100%;
+	height: 30px;
+	position: relative;
+	top: -3px;
+}
+
+.lock-user-control{
+	font-size: 30px;
+}
+
+.user-settings{
+	font-size: 30px;
+}
+
+#user-control-panel{
+	text-align: center;
+	padding-top: 10px;
+	padding-left: 10px;
+}

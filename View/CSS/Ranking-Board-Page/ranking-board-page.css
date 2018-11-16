@@ -1,0 +1,210 @@
+@font-face{
+	font-family: MyriadPro;
+	src:  url("../../Asset/Font/MyriadPro-Regular.otf");
+}
+
+@font-face{
+	font-family: CenturyGothic;
+	src:  url("../../Asset/Font/Century-Gothic.ttf");
+}
+
+body,html{
+	background-color: #2A2929;
+	cursor: none;
+}
+
+/*EFFECTS*/
+.shadow{
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.text-3d{
+	text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);	
+}
+
+@keyframes neon5{
+	from {
+    	box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+  	}
+  	to {
+    	box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+  	}	
+}
+
+.neon-yellow{
+	-webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+  	-moz-animation: neon5 1.5s ease-in-out infinite alternate;
+  	animation: neon5 1.5s ease-in-out infinite alternate;
+}
+/*---------------*/
+
+
+/*ANIMATIONS*/
+@keyframes name-transition-zoom{
+	from{
+		font-size: 3vh;
+		top: 0vh;
+	}
+	to{
+		font-size: 8vh;
+		top: 4vh;
+	}
+}
+
+@keyframes fade{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+/*---------------*/
+
+/*ANIMATION CLASSES*/
+
+.name-transition-zoom-out{
+	animation: name-transition-zoom 1s linear forwards;
+}
+
+.name-transition-zoom-in{
+	animation: name-transition-zoom 1s linear forwards;
+	animation-direction: reverse;
+}
+
+.answer-transition-fade-in{
+	display: block;
+	animation:  fade 1s linear forwards;
+	animation-delay: 1s;
+}
+
+.answer-transition-fade-out{
+	display: none;
+}
+
+.progressbar-transition-fade-in{
+	display: block;
+}
+
+.main-two-transition-fade-in{
+	display: block;
+	animation: fade 1s linear forwards;
+}
+
+.main-two-transition-fade-out{
+	display: none;
+}
+/*-----------------*/
+
+.rk-player-avatar{
+	width:19vh;
+	height: 19vh;
+	border-radius: 50%;
+	border-width: 0px;
+}
+
+.rk-main-content-area-one{
+	width: 100%;
+	height: 19vh;
+	border-radius: 9vh;
+	background-color: white;
+}
+
+.rk-main-content-area-two{
+	width:19vh;
+	height: 19vh;
+	border-radius: 50%;
+	border-width: 0px;
+	background-color: #0984e3;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rk-player-name{
+	font-family: MyriadPro;
+	font-size: 8vh; /*8vh*/ /*3vh*/
+	color: black;
+	position: relative;
+	font-weight: bold;
+	top: 4vh;
+	left: 9vh;
+}
+
+.rk-player-time-progressbar{
+	position: relative;
+	top: 0vh;
+	left: 9vh;
+	width: 100%;
+	height: 4vh;
+}
+
+.time-countdown-label{
+	float: left;
+	font-family: MyriadPro;
+	font-size: 3vh;
+	color: black;
+}
+
+.time-progressbar-outer{
+	width: 80%;
+	background-color: grey;
+	height: 1vh;
+	border-radius: 1vh;
+}
+
+.time-progressbar-inner{
+	width: 100%;
+	height: inherit;
+	border-radius: inherit;
+	background-color: #FF9900;
+}
+
+.rk-player-answer-content{
+	position: relative;
+	top: 0vh;
+	left: 9vh;
+	height: 11vh;
+	width: 80%;
+	font-family: MyriadPro;
+	font-size: 8vh;
+	color: black;
+	font-weight: bold;
+	word-wrap: break-word;
+}
+
+.rk-player-score{
+	font-family: MyriadPro;
+	color: white;
+	font-size: 10vh;
+	text-align: center;
+}
+
+.rk-player-time{
+	font-family: MyriadPro;
+	color: white;
+	font-size: 6vh;
+	text-align: center;
+}
+
+
+#header-text{
+	font-family: CenturyGothic;
+	font-size: 50px;
+	font-weight: bold;
+	font-style: italic;
+	color: white;
+}
+

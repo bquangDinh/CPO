@@ -1,0 +1,51 @@
+{
+  "name": "OZ4-Electron",
+  "version": "1.0.0",
+  "description": "Olympia Software Beta",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "electron-builder",
+    "package-win": "electron-packager . CPO4-Server --overwrite --platform=win32 --arch=x64 --icon=assets\\icons\\win\\iconCPO.ico --out=builds --version-string.ProductName=\"CPO 4 Beta\"",
+    "package-linux": "electron-packager . CPO4-Beta --overwrite --platform=linux --arch=x64 --icon=assets\\icons\\win\\iconCPO.ico --out=builds_linux --version-string.ProductName=\"CPO 4 Beta\"",
+    "package-resource": "asar pack builds\\CPO4-Beta-win32-x64\\resources\\app builds\\CPO4-Beta-win32-x64\\resources\\app.asar"
+  },
+  "build": {
+    "appId": "com.quangdinh.app",
+    "productName": "CPO 4 Electron App",
+    "target": "NSIS",
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
+  },
+  "keywords": [],
+  "author": "Quang Dinh",
+  "license": "ISC",
+  "dependencies": {
+    "cpu-percent": "^2.0.1",
+    "cpu-stat": "^2.0.1",
+    "cpu-usage": "^0.1.0",
+    "electron-builder-squirrel-windows": "^20.15.0",
+    "electron-log": "^2.2.14",
+    "electron-window-manager": "^1.0.6",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.3.1",
+    "mouse-position": "^2.0.1",
+    "os-utils": "0.0.14",
+    "pidusage": "^1.2.0",
+    "play-sound": "^1.1.2",
+    "scrollreveal": "^3.4.0",
+    "systeminformation": "^3.42.0"
+  },
+  "devDependencies": {
+    "electron": "^2.0.2",
+    "electron-builder": "^20.15.1",
+    "electron-packager": "^12.1.0",
+    "electron-prebuilt": "^1.4.13",
+    "electron-winstaller": "^2.6.4"
+  }
+}

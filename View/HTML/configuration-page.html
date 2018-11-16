@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Configuration</title>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/Configuration-Page/configuration-page.css">
+   
+  </head>
+
+  <body>
+
+    <div>
+    	<p id="title-page">Thiết lập cấu hình</p>
+    </div>
+
+    <!--Config Dialog-->
+    <div id="config-window" class="config-dialog">
+      <div class="config-content">
+        <p id="titleOfdialog"></p>
+
+        <div id="ip-place">
+          <p>Host</p>
+          <input type="text" name="ip" id="server-ip" class="input-field" placeholder="Ex:127.0.0.1">
+        </div>
+  
+        <div id="port-place">
+          <p>Port</p>
+          <input type="text" name="port" id="server-port" class="input-field" placeholder="Ex:6969">
+        </div>
+
+        <div id="button-place" style="display: inline-block;float:right;margin-right: 20px;margin-top: 10px;">
+          <button type="button" id="close-dialog" onclick="closeDialog()">Đóng</button>
+          <button type="button" id="confirm-config-server" onclick="confirm()">Xác nhận</button>
+        </div>
+      </div>
+    </div>
+      
+    <div id="log">
+      <p id="log-content">Hãy cấu hình server 0 trước khi bắt đầu</p>
+    </div>
+    
+    <canvas id="server-configure-canvas" width="1052" height="520" style="margin-top: -60px;">
+    </canvas>
+
+    <!--Configure Server-->
+    <div id="server-config-1">
+
+      <div class="server-config">
+        <p id="server-mode">Tùy chọn</p>
+        <p id="server-name">1</p>
+        <input type="image" src="../Asset/Image/server.jpg" onclick="openDialog('1')">
+      </div>
+      
+      <img src="../Asset/Image/check.png" class="status" id="check-status">
+      <img src="../Asset/Image/uncheck.png" class="status" id="uncheck-status">
+    </div>
+
+
+    <div id="server-config-0">
+
+      <div class="server-config">
+        <p id="server-name">0</p>
+        <input type="image" src="../Asset/Image/server.jpg" onclick="openDialog('0')">
+      </div>
+
+      <img src="../Asset/Image/check.png" class="status" id="check-status">
+      <img src="../Asset/Image/uncheck.png" class="status" id="uncheck-status">
+    </div>
+
+    <div id="server-config-2">
+
+      <div class="server-config">
+        <p id="server-mode">Tùy chọn</p>
+        <p id="server-name">2</p>
+        <input type="image" src="../Asset/Image/server.jpg" onclick="openDialog('2')">
+      </div>
+
+      <img src="../Asset/Image/check.png" class="status" id="check-status">
+      <img src="../Asset/Image/uncheck.png" class="status" id="uncheck-status">
+    </div>
+
+
+    <!--Control Button-->
+    <button type="button" class="button" id="next-btt" onclick="openMainWindow()">Tiếp theo</button>
+    <button type="button" class="button" id="close-btt" onclick="closeWindow()">Đóng</button>
+  </body>
+  <script type="text/javascript" charset="utf-8" src="../JS/Configuration-Page-JS/configuration-page-draw.js" async></script>
+  <script type="text/javascript" charset="utf-8" src="../JS/Configuration-Page-JS/configuration-page-event.js" async></script>
+</html>
