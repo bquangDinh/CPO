@@ -1,2 +1,2 @@
 # CPO
-CPO Project
+CPO Project for Server side
